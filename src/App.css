@@ -13,4 +13,12 @@
   color: white;
 }
 
+.gallery {
+  height: 80vh;
+  width: 100vw;
+}
 
+img {
+  width: 300px;
+  height: 300px;
+}

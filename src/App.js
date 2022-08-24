@@ -3,13 +3,17 @@ import Gallery from './components/Gallery.js';
 import './App.css';
 
 function App() {
-  const [artId, setArtId] = useState(1);
+  const [artId, setArtId] = useState(17);
   const [data, setData] = useState(null);
   
   useEffect(() => {
     fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
+    // fetch(`https://api.artic.edu/api/v1/artworks/${artId}`)
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => {
+        setData(data)
+        console.log(data)
+  })
       .catch(error => console.log(error));
       
   } , [artId]);
@@ -19,7 +23,9 @@ function App() {
       <header className="App-header">
         <h1>Art Gallery</h1>
       </header>
-      <Gallery data={data} />
+      <div className="gallery">
+        <Gallery data={data} />
+      </div>
     </div>
   );
 }
